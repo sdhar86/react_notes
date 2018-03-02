@@ -13,11 +13,13 @@ Example:
    state = {
      name: "Roman"
    };
-   
+
    switchNameHandler = () => {
-    
+     this.setState{
+      name: "Vlad"
+     }
    }
-   
+
   render () { 
    return (
     <div>{this.state.name}</div>

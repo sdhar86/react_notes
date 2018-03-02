@@ -51,8 +51,6 @@ Note:
 
 ### Manipulating State:
 
-State should be immutable, we should not mutate a state.
-
 React gives us a nice methiod to use: **setState**
 
 Example:
@@ -74,5 +72,5 @@ state = {
 }
 ```
 
-The setState method would have left the **param\_a** alone. That is, it would still remain 2, and that part of the state wont be touched. This way, we can update the state partially.
+The setState method would have left the **param\_a** alone. That is, it would still remain 2, and that part of the state wont be touched. This way, we can update the state partially. It basically merges the object defined in setState with existing state value.
 
