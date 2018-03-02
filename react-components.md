@@ -4,7 +4,7 @@
 
 ### **Components and React: **
 
-Components are the core building block of React apps. 
+Components are the core building block of React apps.
 
 A typical React app therefore could be depicted as a component tree - having one root component \("App"\) and then an potentially infinite amount of nested child components.
 
@@ -21,10 +21,10 @@ return (
 <div className = "App">
     <h1> React Component goes here.. </h1>
 </div> 
-):  
+):
 ```
 
-Note: 
+Note:
 
 * It looks like HTML a lot
 * we use the keyword "className"  instead of the keyword "class" in JSX
@@ -47,6 +47,10 @@ class Cmp extends Component {
    }
  }
 ```
+
+**Note:**
+
+* Always try to use functional components as much as possible, as they are easy to maintain and good for code readability and understanding. 
 
 ### Dynamic content in JSX:
 

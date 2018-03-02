@@ -49,6 +49,33 @@ Note:
 
 * Whenever state changes, the component will re-render and reflect the new state.
 
+### Changing State: 
+
+State should be immutable, we should not mutate a state. 
+
+React gives us a nice methiod to use: **setState**
+
+Example:
+
+To change the state defined in the previous example, we can just use: 
+
+```
+this.setState{
+ counter: 2
+}
+```
+
+If the existing looked as follows: 
+
+```
+state = {
+ counter: 1 
+ param_a: 2
+}
+```
+
+The setState method would have left the **param\_a** alone. That is, it would still remain 2, and that part of the state wont be touched. This way, we can update the state partially.
+
 
 
 
