@@ -2,11 +2,11 @@
 
 ---
 
-**props** and **state** are CORE concepts of React. Changes in props and/ or state trigger React to rerender your components and potentially update the DOM in the browser
+**props** and **state** are CORE concepts of Components. Changes in props and/ or state trigger React to rerender your components and potentially update the DOM in the browser
 
 ### Props:
 
-props allow you to pass data from a parent \(wrapping\) component to a child \(embedded\) component.![](/assets/props.png)
+### props allow you to pass data from a parent \(wrapping\) component to a child \(embedded\) component.![](/assets/props.png)**Accessing Props inside functional and class based component:**
 
 * Accessing _**title**_ in functional component:  _**props.title**_
 * Accessing _**title**_ in class-based component: _**this.props.title**_
@@ -43,7 +43,13 @@ Example:
   }
 ```
 
-Here, the **NewPost** component contains **state** . **Only class-based components can define and use state** . You can of course pass the state down to functional components, but these then can't directly edit it. **state** simply is a property of the component class, you have to call it **state** though - the name is not optional. You can then access it via **this.state** in your class JSX code \(which you return in the required **render\(\)**  method\).
+Here, the **NewPost** component contains **state** . **Only class-based components can define and use state** . You can of course pass the state down to functional components, but these then can't directly edit it. **state** simply is a property of the component class, you have to call it **state** though - the name is not optional. You can then access it via **this.state** in your class JSX code
 
-**Whenever state changes, the component will re-render and reflect the new state.**
+Note:
+
+* Whenever state changes, the component will re-render and reflect the new state.
+
+
+
+
 
