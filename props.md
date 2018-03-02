@@ -49,15 +49,15 @@ Note:
 
 * Whenever state changes, the component will re-render and reflect the new state.
 
-### Changing State: 
+### Manipulating State:
 
-State should be immutable, we should not mutate a state. 
+State should be immutable, we should not mutate a state.
 
 React gives us a nice methiod to use: **setState**
 
 Example:
 
-To change the state defined in the previous example, we can just use: 
+To change the state defined in the previous example, we can just use:
 
 ```
 this.setState{
@@ -65,7 +65,7 @@ this.setState{
 }
 ```
 
-If the existing looked as follows: 
+If the existing looked as follows:
 
 ```
 state = {
@@ -75,8 +75,4 @@ state = {
 ```
 
 The setState method would have left the **param\_a** alone. That is, it would still remain 2, and that part of the state wont be touched. This way, we can update the state partially.
-
-
-
-
 
