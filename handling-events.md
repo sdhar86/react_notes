@@ -1,4 +1,4 @@
-# Event Handling
+# Handling Events and Passing Event Handlers
 
 ---
 
@@ -64,7 +64,7 @@ Let's say there is a functional component **Person** inside **NewPost**
   }
 ```
 
-here we referenced **switchNameHandler **in the property click. Then inside the Person component, we can use the click handler as follows: 
+here we referenced **switchNameHandler **in the property click. Then inside the Person component, we can use the click handler as follows:
 
 ```
 import React from 'react';
@@ -76,11 +76,43 @@ const person = (props) => {
     </div>
     )
  }
- 
-  export default person; 
- 
 
+  export default person;
 ```
 
+**Passing value to function from the event **
 
+We can change the handler to:
+
+```
+switchNameHandler = (name) => {
+    this.setState{
+        name: name
+    }
+}
+```
+
+There are two ways of passing the data:
+
+1. **With bind - binds the this reference outside the function to that of inside **
+
+```
+onClick={ this.switchNameHandler.bind(this, "Sergei") }
+```
+
+1. **Executing an anoymous ES6 arrow function**
+
+```
+  onClick={ () => this.switchNameHandler("Sandeep") }
+```
+
+When using Arrow function in one line,  the return keyword is automatically added ,
+
+so this gets returned:
+
+```
+this.switchNameHandler("Sandeep")
+```
+
+So, the switcNameHandler\(\) function does not get executed, instead it gets returned. Since the anonymous fat arrow function gets executed and returns it.
 

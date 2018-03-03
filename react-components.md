@@ -43,7 +43,8 @@ Note:
 
 ```
 class Cmp extends Component {
-  render() { return JSX
+  render() { 
+     return JSX
    }
  }
 ```
