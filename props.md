@@ -49,6 +49,24 @@ Note:
 
 * Whenever state changes, the component will re-render and reflect the new state.
 
+We can also initiate state with constructor as  follows: 
+
+```
+class NewPost extends Component { 
+ constructor(props){
+     super(props);
+     state = { counter: 1};
+ }
+
+
+render () {
+    return (
+        <div>{this.state.counter}</div>
+        );
+    }
+}
+```
+
 ### Manipulating State:
 
 React gives us a nice methiod to use: **setState**
