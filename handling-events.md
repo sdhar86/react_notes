@@ -39,7 +39,7 @@ Note
 
 ### Passing Method Reference between Components:
 
-Let's say there is a functional component inside **NewPost**
+Let's say there is a functional component **Person** inside **NewPost**
 
 ```
  class NewPost extends Component { 
@@ -55,18 +55,32 @@ Let's say there is a functional component inside **NewPost**
 
   render () { 
    return (
-    <div
+    <div>
      <div>{this.state.name}</div>
-     <button onClick={ this.switchNameHandler }> Switch Name </button>
+     <Person click={this.switchNameHandler} />
     </div> 
     );
    }
   }
 ```
 
+here we referenced **switchNameHandler **in the property click. Then inside the Person component, we can use the click handler as follows: 
 
+```
+import React from 'react';
 
+const person = (props) => {
+  return (
+    <div>
+      <p onClick={props.click}> Click here </p>
+    </div>
+    )
+ }
+ 
+  export default person; 
+ 
 
+```
 
 
 
