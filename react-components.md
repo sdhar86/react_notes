@@ -28,6 +28,87 @@ Note:
 
 * It looks like HTML a lot
 * we use the keyword "className"  instead of the keyword "class" in JSX
+* Inside the render\(\) method, **we typically have one root level &lt;div&gt;&lt;/div&gt;**
+
+Example:
+
+```
+render() {
+    return (
+        <div>
+          <p></p>
+          <div> </div>
+        </div>
+    );
+}
+```
+
+However, it is possible to return adjacent elements. We have to pass it in as a array and with keys \(just like dynamically generated lists have.\)
+
+```
+    return [
+          <p key="1"></p>, 
+          <div key="2"></div> 
+   ]
+```
+
+### Using Higher Order Component to return adjacent elements: 
+
+Let's make a Aux.js
+
+```
+import React from 'react';
+
+const aux = (props) => props.children;
+
+export default aux; 
+
+```
+
+then we can use the Aux Component
+
+```
+import Aux from ../hoc/Aux
+
+return (
+    <Aux>
+        <p></p>
+        <div></div>
+    </Aux>
+)
+```
+
+### Fragment:
+
+In React 16.2 - Fragment is Introduced, so we do not have to implement the Aux HOC ourselves
+
+Instead of :
+
+```
+import Aux from ../hoc/Aux;
+
+...
+
+return (
+    <Aux>
+        <p></p>
+        <div></div>
+    </Aux>
+)
+```
+
+Now, we can just do :
+
+```
+return (
+    <>
+        <p></p>
+        <div></div>
+    </>
+)
+```
+
+
 
 ### **Component Types:**
 
@@ -52,6 +133,9 @@ class Cmp extends Component {
 **Note:**
 
 * Always try to use functional components as much as possible, as they are easy to maintain and good for code readability and understanding. 
+* Only Class based components/Containers have states and has the avaibility of life cycle hooks
+
+![](/assets/import.png)
 
 ### Dynamic content in JSX:
 
