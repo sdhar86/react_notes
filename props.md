@@ -49,13 +49,13 @@ Note:
 
 * Whenever state changes, the component will re-render and reflect the new state.
 
-We can also initiate state with constructor as  follows: 
+We can also initiate state with constructor as  follows:
 
 ```
 class NewPost extends Component { 
  constructor(props){
      super(props);
-     state = { counter: 1};
+     this.state = { counter: 1};
  }
 
 
