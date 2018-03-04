@@ -40,11 +40,11 @@ componentDidMount () {
  }
 ```
 
-There are other places where data can be called too! 
+There are other places where data can be called too!
 
 **Warning: **
 
-Fetching Data on **ComponentDidUpdate\(\) **can cause **infinite loops**. So , we need to write a guard for that. 
+Fetching Data on **ComponentDidUpdate\(\) **can cause **infinite loops**. So , we need to write a guard for that.
 
 **Example: **
 
@@ -59,9 +59,7 @@ componentDidUpdate () {
 }
 ```
 
-
-
-### Handling Errors
+### Handling Errors \(Locally\)
 
 **Example: **
 
@@ -76,12 +74,6 @@ componentDidMount () {
    })
  }
 ```
-
-
-
-
-
-
 
 
 
