@@ -11,11 +11,9 @@ Know before hand:
 * Async and Await
 * Promises
 * Immutability
-* Higher Order Components
-
-
-
-
+* Higher Order Functions
+* Thunks
+* generators
 
 
 
