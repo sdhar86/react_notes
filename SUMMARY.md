@@ -14,4 +14,7 @@
 * [Prop Validation](prop-validation.md)
 * [References "ref"](references-ref.md)
 * [Axios for api calls](axios-for-api-calls.md)
+* [Axios Interceptors](axios-interceptors.md)
+* [Global Configurations in Axios](global-configurations-in-axios.md)
+* [Async/Await with Lifecycle Hooks](asyncawait-with-lifecycle-hooks.md)
 
