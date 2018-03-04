@@ -1,12 +1,12 @@
-# Higher Order Components in React 
+# Higher Order Components in React
 
 ---
 
-Lets look at two ways of using HOCs in React 
+Lets look at two ways of using HOCs in React
 
-Objective: We want to included specific css classes in a component 
+Objective: We want to included specific css classes in a component
 
-### Approach 1: 
+### Approach 1:
 
 Let's define a WithClass HOC
 
@@ -37,7 +37,7 @@ return (
 );
 ```
 
-### Approach 2: 
+### Approach 2:
 
 We can write the with class HOC differently:
 
@@ -55,13 +55,13 @@ const withClass = (WrappedComponent, className) = {
 export default withClass;
 ```
 
-Note: 
+Note:
 
 * withClass is not a functional component, it is just a function, but it returns a functional component 
 * withClass does not have to return a functional component , it can return a class based component too 
 * we use the** {...props} **in** WrappedComponent **to **pass along unknown props**
 
-Now we can use it as follows in App.js: 
+Now we can use it as follows in App.js:
 
 ```
 import withClass from 'hoc/withClass';
@@ -81,7 +81,7 @@ return (
 export default withClass(App, classes.App)
 ```
 
-To Wrap Stateful Component: 
+**HOC for Stateful Component:**
 
 ```
 import React, {Component} from 'react';
@@ -100,8 +100,6 @@ const withClass = (WrappedComponent, className) = {
 
 export default withClass;
 ```
-
-
 
 
 
