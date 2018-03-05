@@ -17,4 +17,6 @@
 * [Axios Interceptors](axios-interceptors.md)
 * [Global Configurations in Axios](global-configurations-in-axios.md)
 * [Async/Await with Lifecycle Hooks](asyncawait-with-lifecycle-hooks.md)
+* [React Router](react-router.md)
+* [Link and NavLink](link-and-navlink.md)
 
