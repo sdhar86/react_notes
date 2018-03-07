@@ -14,6 +14,8 @@ Know before hand:
 * Higher Order Functions
 * Thunks
 * generators
+* Fetch
+  * [https://scotch.io/tutorials/how-to-use-the-javascript-fetch-api-to-get-data](https://scotch.io/tutorials/how-to-use-the-javascript-fetch-api-to-get-data)
 
 
 
