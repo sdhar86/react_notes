@@ -60,6 +60,7 @@ deletePersonHandler = () => {
 
 render() {
 
+index = 5
   {this.persons.map((person, index) => {
       return <Person 
         name={person.name} 
@@ -69,10 +70,36 @@ render() {
        />
   })}
 
+  OR 
+
+{this.persons.map((person, index) => {
+      return <Person 
+        name={person.name} 
+        age={person.age} 
+        key={person.key}
+        click={this.deletePersonHandler.bind(this,index)}
+       />
+  })}
+
+
+
+
+
+
 }
 ```
 
-Note: In deletePersonHandler\(\) we made a copy of persons and then removed the index passed. This operation must be **immutable**
+```
+this.deletePersonHandler.bind(this,index) is a factory (bind)
+
+and () => deletePersonHandler(index) returns a function - we are still passing a reference.
+```
+
+Note: In deletePersonHandler\(\) we made a copy of persons and then removed the index passed. This operation must be **immutable **
+
+JS is not immutable, so we explicitely try to make it immutable so we save snashots of state.
+
+Java is immutable, ruby is not for example.
 
 Note:  to Update the array in state immutably, we could use the  ES6  spread operator
 
@@ -80,12 +107,18 @@ Note:  to Update the array in state immutably, we could use the  ES6  spread ope
 nameChangedHandler = (updatedName, index) => {
     const person = {
         ...this.state.persons[index]
-    };
+    }; // this spreads person out and puts in a new hash 
 
     person.name = updatedName;
     const persons = [...this.state.persons];
     persons[index] = person;
     this.setState({persons: persons});
+
+
+var person = {
+n
+}
+
 
  }
 ```
@@ -93,7 +126,7 @@ nameChangedHandler = (updatedName, index) => {
 We could have also used older **Object.assign\(\) **method instead of newer ES6 spread operator
 
 ```
-const person = Object.assign({}, this.state.persons[index]);
+const person = Object.assign({}, this.state.persons[index]); // shallow copy
 ```
 
 

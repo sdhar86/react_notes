@@ -4,7 +4,7 @@
 * [React Components and JSX](react-components.md)
 * [Props and State ](props.md)
 * [Handling Events and Passing Event Handlers](handling-events.md)
-* [Two Way Binding / Controlled component](two-way-binding.md)
+* [Controlled component](two-way-binding.md)
 * [Lists and Conditional Patterns](lists.md)
 * [Component Lifecycle](component-lifecycle.md)
 * [PureComponent](purecomponents.md)
