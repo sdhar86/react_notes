@@ -17,7 +17,7 @@
 <Post title="First Post"> Hey Yo </Post>
 ```
 
-**Question**:  
+**Question**:
 
 Do I have to accept props in functional component, or no?
 
@@ -25,7 +25,7 @@ Do I have to accept props in functional component, or no?
 const post = () => { here I get access to props.x  }
 ```
 
-Or 
+Or
 
 ```
 const post = ( props ) => { here I get access to props.x }
@@ -110,12 +110,18 @@ Inside setState this happens:
 
 `state = {};`
 
-**`setState = (Obj) => {`**
+`setState = (Obj) => {`
 
-` state = { ...state, ...Obj }  
+`state = { ...state, ...Obj }    
 }`
 
-setStaste\({counter: undefined}\)
+**Sandeep** **Note: **
+
+* the spread operator does a replace 
+* React does a shallow merge \( uses spread operators\)
+* the lodash merge does nested recursive merge \(deep merge\)
+* \`undefined\` replaces value in ES6 spread operator - lodash merge does not 
+* in a redux app we can use **replace** and **merge **actions- **replace** will use the spread operators, **merge** will use lodash merge
 
 
 

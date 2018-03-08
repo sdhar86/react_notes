@@ -1,4 +1,4 @@
-# Two Way Binding/Controlled Component
+# Controlled Component
 
 ---
 
@@ -8,11 +8,11 @@ import React, {Component} from 'react';
 class SearchBar extends Component {
   constructor(props){
    super(props)
-   
+
    this.state = {term: ''}
   }
-  
-   
+
+
   render(){
     return (
        <div>
@@ -26,18 +26,17 @@ class SearchBar extends Component {
 export default SearchBar
 ```
 
-In here the value makes the state Change , but Really State should change the value, not the other way around: 
+In here the value makes the state Change , but Really State should change the value, not the other way around:
 
 ```
-
 class SearchBar extends Component {
   constructor(props){
    super(props)
-   
+
    this.state = {term: ''}
   }
-  
-   
+
+
   render(){
     return (
        <div>
@@ -53,9 +52,9 @@ class SearchBar extends Component {
 export default SearchBar
 ```
 
-After the update, the **onChange** event actually changes the state and not the event, the changed state in term re renders the DOM and shows the change in the value of the input component. 
+After the update, the **onChange** event actually changes the state and not the event, the changed state in term re renders the DOM and shows the change in the value of the input component.
 
-We can now have a starting value for the input: 
+We can now have a starting value for the input:
 
 ```
 constructor(props){
@@ -63,8 +62,6 @@ constructor(props){
     this.state = {term: 'Starting Value...'}
 }
 ```
-
-
 
 
 

@@ -12,7 +12,7 @@
      name: "Roman"
    };
 
-   switchNameHandler = () => {
+   _switchNameHandler = () => {
      this.setState{
       name: "Vlad"
      }
@@ -22,7 +22,7 @@
    return (
     <div>
      <div>{this.state.name}</div>
-     <button onClick={ this.switchNameHandler }> Switch Name </button>
+     <button onClick={ this._switchNameHandler }> Switch Name </button>
     </div>
     );
    }
@@ -31,11 +31,47 @@
 
 Note
 
+* We use \_ to denote that the function is private.
+
 * in normal html, we would use onclick , but in JSX it is onClick \(for other events see, docs\)
+
 * Do not call the function inside the event 
   * **Correct**: onClick={ this.switchNameHandler } . We just want to pass a reference 
   * **Wrong** : onClick={ this.switchNameHandler\(\) } . This would execute immidiately when React renders to the DOM.
 * Right after changing the State, the DOM would be updated to reflect the new state. 
+
+However, using Factory pattern \(where a fuction returns another function\) we can use:
+
+```
+class NewPost extends Component {
+    state = {
+    name: "Roman"
+    };
+
+_switchNameHandler = () => {
+  return () => {
+    this.setState({
+    name: "Vlad"
+   })
+ }
+}
+
+render () {
+  return (
+    <div>
+      <div>{this.state.name}</div>
+      <button onClick={ this._switchNameHandler() }> Switch Name </button>
+    </div>
+  );
+  }
+}
+```
+
+* The factory pattern is used in thunks
+
+* This factory pattern
+
+### 
 
 ### Passing Method Reference between Components:
 
@@ -94,7 +130,7 @@ switchNameHandler = (name) => {
 
 There are two ways of passing the data:
 
-1. **With bind - binds the this reference outside the function to that of inside **
+1. **With bind - binds the this reference outside the function to that of inside \(better practice\)**
 
 ```
 onClick={ this.switchNameHandler.bind(this, "Sergei") }
