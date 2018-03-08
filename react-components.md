@@ -14,13 +14,19 @@ Each component needs to return/ render some JSX code - it defines which HTML cod
 
 **JSX is NOT HTML** but it looks a lot like it. Differences can be seen when looking closely though \(for example className in JSX vs class in "normal HTML"\). JSX is just syntactic sugar for JavaScript, allowing you to write HTMLish code instead of nested React.createElement\(...\) calls.
 
+
+
+**Sandeep Experience**
+
+*  When writing in JSX, we can think of it as superset of html, or html with different properties.
+
 Sample JSX:
 
 ```
 return (
-<div className = "App">
-    <h1> React Component goes here.. </h1>
-</div> 
+    <div className = "App">
+        <h1> React Component goes here.. </h1>
+    </div> 
 ):
 ```
 
@@ -52,7 +58,7 @@ However, it is possible to return adjacent elements. We have to pass it in as a 
    ]
 ```
 
-### Using Higher Order Component to return adjacent elements: 
+### Using Higher Order Component to return adjacent elements:
 
 Let's make a Aux.js
 
@@ -61,8 +67,7 @@ import React from 'react';
 
 const aux = (props) => props.children;
 
-export default aux; 
-
+export default aux;
 ```
 
 then we can use the Aux Component
@@ -108,8 +113,6 @@ return (
 )
 ```
 
-
-
 ### **Component Types:**
 
 ### When creating components, you have the choice between two different ways:
@@ -129,6 +132,13 @@ class Cmp extends Component {
    }
  }
 ```
+
+**Sandeep Experience**
+
+* Its easier to always use class components, 
+  * we can always generate a skeleton structure in ruby mine
+  * we can prop types
+  * we don't have to refactor id the component becomes more cimplicated.
 
 **Note:**
 

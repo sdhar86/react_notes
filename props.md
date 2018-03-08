@@ -17,6 +17,20 @@
 <Post title="First Post"> Hey Yo </Post>
 ```
 
+**Question**:  
+
+Do I have to accept props in functional component, or no?
+
+```
+const post = () => { here I get access to props.x  }
+```
+
+Or 
+
+```
+const post = ( props ) => { here I get access to props.x }
+```
+
 We can now access the "**Hey Yo**" passed in the component using the reserved keyword _**children. **_
 
 Inside the Component, _**props.children**_** **is "**Hey Yo**"
@@ -76,9 +90,9 @@ Example:
 To change the state defined in the previous example, we can just use:
 
 ```
-this.setState{
+this.setState({
  counter: 2
-}
+});
 ```
 
 If the existing looked as follows:
@@ -91,4 +105,17 @@ state = {
 ```
 
 The setState method would have left the **param\_a** alone. That is, it would still remain 2, and that part of the state wont be touched. This way, we can update the state partially. It basically merges the object defined in setState with existing state value.
+
+Inside setState this happens:
+
+`state = {};`
+
+**`setState = (Obj) => {`**
+
+` state = { ...state, ...Obj }  
+}`
+
+setStaste\({counter: undefined}\)
+
+
 
