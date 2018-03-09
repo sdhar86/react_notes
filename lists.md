@@ -114,20 +114,14 @@ nameChangedHandler = (updatedName, index) => {
     persons[index] = person;
     this.setState({persons: persons});
 
-
-var person = {
-n
-}
-
-
  }
 ```
 
 We could have also used older **Object.assign\(\) **method instead of newer ES6 spread operator
 
 ```
-const person = Object.assign({}, this.state.persons[index]); // shallow copy
+const person = Object.assign({}, this.state.persons[index]); // shallow copy excludes prototyes.
 ```
 
-
+To do : simualte Prototypical Inheritence and see shallow copy of Object.assign
 
