@@ -106,21 +106,23 @@ state = {
 
 The setState method would have left the **param\_a** alone. That is, it would still remain 2, and that part of the state wont be touched. This way, we can update the state partially. It basically merges the object defined in setState with existing state value.
 
-Inside setState this happens:
+Inside setState something like this  happens:
 
-`state = {};`
+```
+state = {a: 1, b: 2};
 
-`setState = (Obj) => {`
+setState = (Obj) => {
+ state = { ...state, ...Obj }    
+}
+```
 
-`state = { ...state, ...Obj }    
-}`
+ **Note: **
 
-**Sandeep** **Note: **
-
-* the spread operator does a replace 
-* React does a shallow merge \( uses spread operators\)
-* the lodash merge does nested recursive merge \(deep merge\)
+* the spread operator does a replace of a key, and not a merge
+* **React setState does a shallow merge \( uses spread operators\).**
+*  We can use the **lodash merge** does nested recursive merge \(deep merge\)
 * \`undefined\` replaces value in ES6 spread operator - lodash merge does not 
+  * if we have use spread operator to merge {b: undefined} the b param will be set to undefined, but lodash merge does not do this. 
 * in a redux app we can use **replace** and **merge **actions- **replace** will use the spread operators, **merge** will use lodash merge
 
 
