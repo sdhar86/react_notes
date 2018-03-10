@@ -14,11 +14,9 @@ Each component needs to return/ render some JSX code - it defines which HTML cod
 
 **JSX is NOT HTML** but it looks a lot like it. Differences can be seen when looking closely though \(for example className in JSX vs class in "normal HTML"\). JSX is just syntactic sugar for JavaScript, allowing you to write HTMLish code instead of nested React.createElement\(...\) calls.
 
-
-
 **Sandeep Experience**
 
-*  When writing in JSX, we can think of it as superset of html, or html with different properties.
+* When writing in JSX, we can think of it as superset of html, or html with different properties.
 
 Sample JSX:
 
@@ -135,10 +133,10 @@ class Cmp extends Component {
 
 **Sandeep Experience**
 
-* Its easier to always use class components, 
-  * we can always generate a skeleton structure in ruby mine
-  * we can prop types
-  * we don't have to refactor id the component becomes more cimplicated.
+* Its sometimes easier to always use class components, specially when working with Redux
+  * we can always generate a skeleton class structure in ruby mine/sublime
+  * we can use prop types in class components 
+  * we don't have to refactor id the component becomes more complicated.
 
 **Note:**
 
