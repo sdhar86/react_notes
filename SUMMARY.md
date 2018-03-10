@@ -21,4 +21,6 @@
 * [Link and NavLink](link-and-navlink.md)
 * [Router Props and WithRouter HOC](withrouter-hoc.md)
 * [Dynamic id in Routes](dynamic-id-in-routes.md)
+* [Switch HOC ](switch-hoc.md)
+* [Navigating Programmatically](navigating-programmatically.md)
 
