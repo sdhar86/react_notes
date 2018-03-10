@@ -16,6 +16,7 @@ Know before hand:
 * generators
 * Fetch
   * [https://scotch.io/tutorials/how-to-use-the-javascript-fetch-api-to-get-data](https://scotch.io/tutorials/how-to-use-the-javascript-fetch-api-to-get-data)
+* Closure
 
 
 

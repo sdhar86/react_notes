@@ -29,18 +29,20 @@
   }
 ```
 
-Note
+**Note**
 
-* We use \_ to denote that the function is private.
+* We use \_ to denote that the function is private to the class.
 
 * in normal html, we would use onclick , but in JSX it is onClick \(for other events see, docs\)
 
-* Do not call the function inside the event 
+* Do not call the function inside the event
+
   * **Correct**: onClick={ this.switchNameHandler } . We just want to pass a reference 
   * **Wrong** : onClick={ this.switchNameHandler\(\) } . This would execute immidiately when React renders to the DOM.
+
 * Right after changing the State, the DOM would be updated to reflect the new state. 
 
-However, using Factory pattern \(where a fuction returns another function\) we can use:
+However, using **Factory pattern **\(where a fuction returns another function\) we can use:
 
 ```
 class NewPost extends Component {
@@ -67,11 +69,11 @@ render () {
 }
 ```
 
+**Note**
+
 * The factory pattern is used in thunks
 
-* This factory pattern
-
-### 
+* This factory pattern is also used extensively in Redux 
 
 ### Passing Method Reference between Components:
 

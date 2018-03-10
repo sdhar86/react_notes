@@ -66,7 +66,7 @@ index = 5
         name={person.name} 
         age={person.age} 
         key={person.key}
-        click={() => this.deletePersonHandler(index)}
+        click={() => this.deletePersonHandler(index)} // this is actually a closure
        />
   })}
 
@@ -92,7 +92,8 @@ index = 5
 ```
 this.deletePersonHandler.bind(this,index) is a factory (bind)
 
-and () => deletePersonHandler(index) returns a function - we are still passing a reference.
+and () => deletePersonHandler(index) returns a function - we are still passing a reference. Therefore,
+ a closure.
 ```
 
 Note: In deletePersonHandler\(\) we made a copy of persons and then removed the index passed. This operation must be **immutable **
@@ -123,5 +124,5 @@ We could have also used older **Object.assign\(\) **method instead of newer ES6 
 const person = Object.assign({}, this.state.persons[index]); // shallow copy excludes prototyes.
 ```
 
-To do : simualte Prototypical Inheritence and see shallow copy of Object.assign
+To do : simulate Prototypical Inheritence and see shallow copy of Object.assign
 
