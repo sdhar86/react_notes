@@ -25,4 +25,5 @@
 * [Navigating Programmatically](navigating-programmatically.md)
 * [404 Pages](404-pages.md)
 * [Lazy Loading](lazy-loading.md)
+* [Context and the Provider Pattern in React](context-and-the-provider-pattern-in-react.md)
 
