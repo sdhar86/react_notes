@@ -32,6 +32,10 @@ Using the router specific params:
 {this.props.match.params.id}
 ```
 
+**Note**:
+
+incoming Id is a string and not  integer when we get it from router.
+
 ### Parsing Query Params:
 
 ```
