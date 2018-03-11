@@ -2,6 +2,8 @@
 
 ---
 
+Source: [https://www.robinwieruch.de/react-provider-pattern-context/](#source-httpswwwrobinwieruchdereact-provider-pattern-context)
+
 ### Context
 
 Note:
@@ -172,8 +174,6 @@ Headline.contextTypes = {
 };
 ```
 
-
-
 **Provider Patterns in state management libraries \(e.g. Redux, MobX\): **
 
 We rarely use `this.context`down in the component tree when using a state management library. That's because there is always a HOC that comes with library that does that for us  \(e.g. connect in react-redux library\).
@@ -231,11 +231,4 @@ const SubHeadlineWithContext = getContext(contextTypes)(SubHeadline);
 ```
 
 Now you could wrap any component into the`getContext`higher order component and expose it to the colored theme property. The property would end up in the props and not in the context object anymore.
-
-  
-
-
-
-
-
 
