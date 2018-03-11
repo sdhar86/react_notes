@@ -24,4 +24,5 @@
 * [Switch HOC ](switch-hoc.md)
 * [Navigating Programmatically](navigating-programmatically.md)
 * [404 Pages](404-pages.md)
+* [Lazy Loading](lazy-loading.md)
 
