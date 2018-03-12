@@ -26,4 +26,5 @@
 * [404 Pages](404-pages.md)
 * [Lazy Loading](lazy-loading.md)
 * [Context and the Provider Pattern in React](context-and-the-provider-pattern-in-react.md)
+* [Redux: A State management Library for React](redux-a-state-management-library-for-react.md)
 
