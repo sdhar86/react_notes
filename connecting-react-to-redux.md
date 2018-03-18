@@ -251,7 +251,7 @@ Just like the`Provider`we wrote before, the`Provider`that comes with`react-redux
 
 With all the Configurations, the index file might get messy:
 
-example: 
+example:
 
 ```js
 import 'babel-polyfill'
@@ -308,7 +308,7 @@ const configureStore = () => {
 export default configureStore
 ```
 
-We can extract out the Root component as well: 
+We can extract out the Root component as well:
 
 ```js
 import React, { PropTypes } from 'react';
@@ -342,6 +342,45 @@ render(
   <Root store={store} />,
   document.getElementById('root')
 );
+```
+
+With the extracted Root Component, it is **easy for us to add React Router to our projects: **
+
+react-router 4.0.0 and up 
+
+```js
+import React, { PropTypes } from 'react';
+import { Provider } from 'react-redux';
+import App from './App';
+import { BrowserRouter, Route } from 'react-router-dom'
+
+const Root = ({ store }) => (
+    <Provider store={store}>
+        <BrowserRouter>
+            <Route path="/" component={App} />
+        </BrowserRouter>
+    </Provider>
+);
+```
+
+Old React router &lt; v4.0.0: 
+
+```js
+import React, { PropTypes } from 'react';
+import { Provider } from 'react-redux';
+import { Router, Route, browserHistory } from 'react-router';
+import App from './App';
+
+const Root = ({ store }) => (
+  <Provider store={store}>
+    <Router history={browserHistory}>
+      <Route path="/" component={App} />
+    </Router>
+  </Provider>
+);
+.
+.
+.
 ```
 
 
