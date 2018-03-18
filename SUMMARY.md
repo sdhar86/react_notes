@@ -33,4 +33,5 @@
 * [Connect\(\)](connect.md)
 * [Action Creators and bindActionCreators](actioncreators.md)
 * [Selectors and Reselect](entry-point.md)
+* [Redux Middleware](redux-middleware.md)
 
