@@ -17,10 +17,12 @@
 ```js
 import {createStore, applyMiddleWare } from 'redux';
 
-import ReduxPromise from 'redux-promise';
+import someMiddleWare from 'middleware_file_path';
 ...
 
-const createStoreWithMiddleware = applyMiddleware()(createStore);
+composeStoreWithMiddleware = applyMiddleware(
+  someMiddleWare
+)(createStore)
 ...
 
 ReactDOM.render(
@@ -30,20 +32,6 @@ ReactDOM.render(
   ,document.querySelector('.container')
 );
 ```
-
-In this case the redux promise waits for a promise to be the resolved or rejected before passing to the reducers. 
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
