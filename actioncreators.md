@@ -2,17 +2,17 @@
 
 ---
 
-### Lifecycle of an action: 
+### Lifecycle of an action:
 
 ![](/assets/action_lifecycle.png)
 
 An Action creator is a function that returns an action. Which will eventually be dispatched and flow through all the reducers. Action creators are typically kept separate from components and reducers in order to help with maintainability.
 
-Using Action Creator and **bindActionCreator**, the mapDispatchtoProps can be simplified even more. 
+Using Action Creator and **bindActionCreator**, the mapDispatchtoProps can be simplified even more.
 
-Example: 
+Example:
 
-We can make a action creator: 
+We can make a action creator:
 
 ```js
 export function selectBook(book) {
@@ -35,11 +35,5 @@ function mapDispatchToProps(dispatch){
 }
 ```
 
- 
-
-
-
-
-
-
+This makes a prop for all the action creators and automatically 
 
