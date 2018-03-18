@@ -10,7 +10,7 @@ State management in a big appiication can be tricky, thats why we use Redux as a
 
 ---
 
-```
+```JavaScript
 const createStore = redux.createStore;
 
 const initialState = {counter : 0}
