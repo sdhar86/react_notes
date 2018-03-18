@@ -32,5 +32,5 @@
 * [Connecting React to Redux](connecting-react-to-redux.md)
 * [Connect\(\)](connect.md)
 * [Action Creators](actioncreators.md)
-* [Entry Point](entry-point.md)
+* [Selectors](entry-point.md)
 
