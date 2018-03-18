@@ -175,7 +175,7 @@ we define a provider HOC:
       store: React.PropTypes.object
     }
 
-and then: 
+and then:
 
 ```
 ReactDOM.render(
@@ -213,7 +213,7 @@ class VisibleTodoList extends Component {
 }
 ```
 
-**Note**: 
+**Note**:
 
 The`context`is opt-in for all components, so we have to speciicf`contextTypes.`If you don't specify this, the component won't receive the relevant context, so it is essential to declare them!
 
@@ -223,7 +223,7 @@ VisibleTodoList.contextTypes = {
 }
 ```
 
-**Our functional components don't have`this`, so how will we give them`context`?**
+**Our functional components don't have**`this`**, so how will we give them**`context`**?**
 
 It turns out that they receive context as a second argument \(after`props`\). We also need to add`contextTypes`for the component that specifies which context we want to receive \(in this case`store`from`Provider)`. Context can be passed down to any level, so you can think of it as creating a 'wormhole' to whatever component that uses it, however, you must remember to opt-in by declaring the contextTypes
 
@@ -246,4 +246,103 @@ import { Provider } from 'react-redux';
 ```
 
 Just like the`Provider`we wrote before, the`Provider`that comes with`react-redux`exposes the`store`as a prop on the context.
+
+### Refactoring Entry point
+
+With all the Configurations, the index file might get messy:
+
+example: 
+
+```js
+import 'babel-polyfill'
+import React from 'react'
+import { render } from 'react-dom'
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
+import throttle from 'lodash/throttle'
+import todoApp from './reducers'
+import App from './components/App'
+import { loadState, saveState } from './localStorage'
+
+const persistedState = loadState()
+const store = createStore(
+  todoApp,
+  persistedState
+);
+
+store.subscribe(throttle(() => {
+  saveState({
+    todos: store.getState().todos,
+  })
+}, 1000))
+
+render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+)
+```
+
+We can extract the configuration of store in another file: - configureStrore.js
+
+```js
+import { createStore } from 'redux'
+import throttle from 'lodash/throttle'
+import todoApp from './reducers'
+import { loadState, saveState } from './localStorage'
+
+const configureStore = () => {
+  const persistedState = loadState()
+  const store = createStore(todoApp, persistedState)
+
+  store.subscribe(throttle(() => {
+    saveState({
+      todos: store.getState().todos
+    })
+  }, 1000))
+
+  return store
+}
+
+export default configureStore
+```
+
+We can extract out the Root component as well: 
+
+```js
+import React, { PropTypes } from 'react';
+import { Provider } from 'react-redux';
+import App from './App';
+
+const Root = ({ store }) => (
+  <Provider store={store}>
+    <App />
+  </Provider>
+);
+
+Root.propTypes = {
+  store: PropTypes.object.isRequired,
+};
+
+export default Root;
+```
+
+and then we can use then in index,js
+
+```js
+import 'babel-polyfill'
+import React from 'react'
+import { render } from 'react-dom'
+import Root from './components/Root'
+import configureStore from './configureStore'
+
+const store = configureStore()
+render(
+  <Root store={store} />,
+  document.getElementById('root')
+);
+```
+
+
 
