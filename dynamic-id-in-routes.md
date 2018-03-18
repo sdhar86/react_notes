@@ -36,9 +36,72 @@ Using the router specific params:
 
 incoming Id is a string and not  integer when we get it from router.
 
+**Dynamic id Examples:**
+
+if We want the filter prop to correspond to the current`filter`parameter in our route configuration \(the`path='/(:filter)'`\). React Router makes these parameters available to the route handler component in a special prop called`params`
+
+**Old Router**
+
+```js
+const App = ({ params }) => (
+  <div>
+    <AddTodo />
+    <VisibleTodoList
+      filter={params.filter || 'all'}
+    />
+    <Footer />
+  </div>
+);
+```
+
+**New Router &gt; v4.0.0**
+
+```js
+const App = ({ match }) => (
+  <div>
+    <AddTodo />
+    <VisibleTodoList
+      filter={match.params.filter || 'all'}
+    />
+    <Footer />
+  </div>
+);
+```
+
+**with WithRouter HOC**
+
+app.js: 
+
+```js
+const App = () => (
+  <div>
+    <AddTodo />
+    <VisibleTodoList />
+    <Footer />
+  </div>
+);
+```
+
+visibleTodoList.js
+
+```js
+const mapStateToProps = (state, ownProps) => ({
+  todos: getVisibleTodos(
+    state.todos,
+    ownProps.params.filter || 'all'),
+});
+
+// mapDispatchToProps ...
+
+const VisibleTodoList = withRouter(connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(TodoList));
+```
+
 ### Parsing Query Params:
 
-```
+```js
 <Link to="/my-path?start=5">Go to Start</Link> 
 
  or 
