@@ -6,9 +6,7 @@ A library that provides a central place to manage state. Redux provides data lay
 
 State management in a big appiication can be tricky, thats why we use Redux as a central manager of state
 
-
-
-### Three Principles of Redux: 
+### Three Principles of Redux:
 
 * **The entire state of the application will be represented by one JavaScript object. **All changes and mutations to the application are explicit. These mutations, which include the data and the UI state, are contained in a single object we call the **state**.
 
@@ -20,11 +18,45 @@ State management in a big appiication can be tricky, thats why we use Redux as a
 
 **Example Reducer: **
 
+```js
+const counter = (state = 0, action) => {
+  switch (action.type) {
+    case 'INCREMENT':
+      return state + 1;
+    case 'DECREMENT':
+      return state - 1;
+    default:
+      return state;
+  }
+}
+```
 
+### Store:
 
-### ![](/assets/redux.png)Redux Basic
+The **store** binds together the 3 principles of Redux:
 
----
+1. Holds the current application state object
+2. Allows you to dispatch actions
+3. When you create it, you need to specify the reducer that tells how state is updated with actions.
+
+#### Store has 3 important methods:
+
+1. `getState()`retrieves the current state of the Redux store. If we ran`console.log(store.getState())`with the code above, we could get`0`since it is the initial state of our application.
+
+2. `dispatch()`is the most commonly used. It is how we dispatch actions to change the state of the application. If we run`store.dispatch( { type: 'INCREMENT' });`followed by`console.log(store.getState());`we will get`1`since
+
+3. `subscribe()`registers a callback that the redux store will call any time an action has been dispatched so you can update the UI of your application to reflect the current application state.
+
+```js
+const { createStore } = Redux; // Redux CDN import syntax
+// import { createStore } from 'redux' // npm module syntax
+
+const store = createStore(counter);
+```
+
+### Redux Overall Structure: ![](/assets/redux.png)
+
+### Redux Example:  
 
 ```JavaScript
 const createStore = redux.createStore;
