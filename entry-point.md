@@ -6,17 +6,16 @@
 
 Selectors are functions that take Redux state as an argument and return some data to pass to the component. Redux state can be thought of like a database and selectors like SELECT queries to get useful data from the database. A good example is a filtered list. **They are normally colocated near the reducers**
 
-Reason to have selector: 
+Reason to have selector:
 
 * to avoid duplicated data in Redux.
 
-* Performing data transformations in the component makes them more coupled to the Redux state and less generic/reusable. Also, as Dan Abramov points out, it makes sense to keep selectors near reducers because they operate on the same state. If the state schema changes, it is easier to update the selectors than to update the components  
+* Performing data transformations in the component makes them more coupled to the Redux state and less generic/reusable. Also, as Dan Abramov points out, it makes sense to keep selectors near reducers because they operate on the same state. If the state schema changes, it is easier to update the selectors than to update the components
 
-Simple example: 
+Simple example:
 
 ```js
 const getDataType = state => state.editor.dataType;
-
 ```
 
 They are typically used in`mapStateToProps`in`react-redux`'s`connect`:
@@ -29,10 +28,9 @@ export default connect(
     dataType: state.editor.dataType,
   })
 )(MyComponent);
-
 ```
 
-Wit using Selectors; 
+Wit using Selectors;
 
 ```
 export default connect(
@@ -40,21 +38,21 @@ export default connect(
     dataType: getDataType(state),
   })
 )(MyComponent);
-
 ```
 
-### Performance and Reselect
+# Performance and Reselect
+
+---
 
 `mapStateToProps`gets called a lot so performing expensive calculations there is not good. This is where the[`reselect`](https://github.com/reactjs/reselect)library comes in. Selectors created with`reselect's createSelector`will memoize to avoid unnecessary recalculations
 
 [https://redux.js.org/recipes/computing-derived-data](https://redux.js.org/recipes/computing-derived-data)
 
-Let's say we had this container: 
+Let's say we had this container:
 
 ### `containers/VisibleTodoList.js` {#containersvisibletodolist.js}
 
 ```js
-
 import { connect } from 'react-redux'
 import { toggleTodo } from '../actions'
 import TodoList from '../components/TodoList'
@@ -98,8 +96,7 @@ In the above example,`mapStateToProps`calls`getVisibleTodos`to calculate`todos.`
 
 We would like to replace`getVisibleTodos`with a memoized selector that recalculates`todos`when the value of`state.todos`or`state.visibilityFilter`changes, but not when changes occur in other \(unrelated\) parts of the state tree.
 
-Reselect provides a function`createSelector`for creating memoized selectors.`createSelector`takes an array of input-selectors and a transform function as its arguments. If the Redux state tree is changed in a way that causes the value of an input-selector to change, the selector will call its transform function with the values of the input-selectors as arguments and return the result. If the values of the input-selectors are the same as the previous call to the selector, it will return the previously computed value instead of calling the transform function.  
-
+Reselect provides a function`createSelector`for creating memoized selectors.`createSelector`takes an array of input-selectors and a transform function as its arguments. If the Redux state tree is changed in a way that causes the value of an input-selector to change, the selector will call its transform function with the values of the input-selectors as arguments and return the result. If the values of the input-selectors are the same as the previous call to the selector, it will return the previously computed value instead of calling the transform function.
 
 ![](/assets/reselect_1.png)
 
@@ -108,8 +105,6 @@ Reselect provides a function`createSelector`for creating memoized selectors.`cre
 ### `selectors/index.js` {#selectorsindex.js}
 
 ```js
-
-
 import { createSelector } from 'reselect'
  
 const getVisibilityFilter = state => state.visibilityFilter
@@ -150,10 +145,9 @@ const getVisibleTodosFilteredByKeyword = createSelector(
 
 you can call selectors as regular functions inside`mapStateToProps()`:
 
-**`containers/VisibleTodoList.js`**
+`containers/VisibleTodoList.js`
 
 ```js
-
 import { connect } from 'react-redux'
 import { toggleTodo } from '../actions'
 import TodoList from '../components/TodoList'
@@ -207,7 +201,6 @@ const App = () => (
 ### `selectors/todoSelectors.js` {#selectorstodoselectors.js}
 
 ```js
-
 import { createSelector } from 'reselect'
  
 const getVisibilityFilter = (state, props) =>
@@ -249,7 +242,6 @@ Using the`getVisibleTodos`selector with multiple instances of the`visibleTodoLis
 ### `containers/VisibleTodoList.js` {#containersvisibletodolist.js-2}
 
 ```js
-
 import { connect } from 'react-redux'
 import { toggleTodo } from '../actions'
 import TodoList from '../components/TodoList'
@@ -291,7 +283,6 @@ Let's create a function named`makeGetVisibleTodos`that returns a new copy of the
 ### `selectors/todoSelectors.js` {#selectorstodoselectors.js-1}
 
 ```js
-
 import { createSelector } from 'reselect'
  
 const getVisibilityFilter = (state, props) =>
@@ -341,7 +332,6 @@ If we pass`makeMapStateToProps`to`connect`, each instance of the`VisibleTodosLis
 ### `containers/VisibleTodoList.js` {#containersvisibletodolist.js-3}
 
 ```js
-
 import { connect } from 'react-redux'
 import { toggleTodo } from '../actions'
 import TodoList from '../components/TodoList'
@@ -372,14 +362,6 @@ const VisibleTodoList = connect(
  
 export default VisibleTodoList
 ```
-
-
-
-
-
-
-
-
 
 
 
