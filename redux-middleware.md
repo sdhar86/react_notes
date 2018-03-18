@@ -12,7 +12,7 @@
 
 ### ![](/assets/middleware_stack.png)
 
-### Applying Middlewares: 
+### Applying Middlewares:
 
 ```js
 import {createStore, applyMiddleWare } from 'redux';
@@ -29,8 +29,13 @@ ReactDOM.render(
     <Provider>  
   ,document.querySelector('.container')
 );
-
 ```
+
+In this case the redux promise waits for a promise to be the resolved or rejected before passing to the reducers. 
+
+
+
+
 
 
 
