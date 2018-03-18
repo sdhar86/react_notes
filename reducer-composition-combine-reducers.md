@@ -103,7 +103,6 @@ const byId = (state = {}, action) => {
 };
 ```
 
-  
 This is still reducer composition, but with an object instead of an array.
 
 ## **NOTE**: We are using the Object Spread operator \(`...state`\). This is not a part of ES6, so we need to install the`transform-object-rest-spread`Babel plugin, and add it to our`.babelrc`file in order for this to work.
@@ -133,16 +132,14 @@ const allIds = (state = [], action) => {
 
 We still need to export the single reducer from the`todos.js`file, so we use`combineReducers()`again to combine the`byId`and the`allIds`reducers.
 
-  
-
+```js
+const todos = combineReducers({
+  byId,
+  allIds,
+});
+```
 
 ---
 
 _Note_: You can use combined reducers as many times as you like. You don't have to only use it on the top-level reducer. In fact, it's very common that as your app grows, you'll use`combineReducers`in several places.
-
-
-
-
-
-
 
