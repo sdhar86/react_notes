@@ -28,4 +28,5 @@
 * [Context and the Provider Pattern in React](context-and-the-provider-pattern-in-react.md)
 * [Redux: A State management Library for React](redux-a-state-management-library-for-react.md)
 * [Connecting React to Redux](connecting-react-to-redux.md)
+* [Avoiding State Mutation](avoiding-state-mutation.md)
 
