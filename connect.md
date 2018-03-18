@@ -8,13 +8,13 @@ Our container components are similar: they need to re-render when the store's st
 
 They also need to specify the`contextTypes`to get the store from the context.
 
-To understand/implement** connect\(\) **we need two functions: 
+To understand/implement** connect\(\) **we need two functions:
 
 ### mapStateToProps\(\)
 
-The name describes exactly what it does - it takes the Redux store's state, and changes them to props for the component. 
+The name describes exactly what it does - it takes the Redux store's state, and changes them to props for the component.
 
-Example: 
+Example:
 
 ```js
 const mapStateToProps = (state) => {
@@ -31,9 +31,9 @@ the todos is now available as a props in the React Component.
 
 ## mapDispatchToProps\(\)
 
-Like the earlier function, the name is very descriptive again ..it maps the store's`dispatch()`method and returns the props that use the dispatch method to dispatch actions. 
+Like the earlier function, the name is very descriptive again ..it maps the store's`dispatch()`method and returns the props that use the dispatch method to dispatch actions.
 
-Example: 
+Example:
 
 ```js
 const mapDispatchToProps = (dispatch) => {
@@ -48,7 +48,7 @@ const mapDispatchToProps = (dispatch) => {
 };
 ```
 
-Now, whenever onTodoClick is called, it dispatches an action that flows through all the reducers. 
+Now, whenever onTodoClick is called, it dispatches an action that flows through all the reducers.
 
 ### connect\(\) ing it up:
 
@@ -66,4 +66,19 @@ const VisibleTodoList = connect(
 ```
 
 Instead of creating a`VisibleTodoList`class, we can declare a variable and use the`connect()`method to obtain it. We'll pass in`mapStateToProps`as the first argument, and`mapDispatchToProps`as the second. As this is a curried function, we must call it again, passing in the presentational component that we want it to wrap and pass the props, thereby connecting to the redux store \(in this case,`TodoLis`\)
+
+### mapDispatchToProps shorthand
+
+Often, don't need to write`mapDispatchToProps,`and you can pass this map in object instead.
+
+```js
+const VisibleTodoList = withRouter(connect(
+  mapStateToProps,
+  { onTodoClick: toggleTodo }
+)(TodoList));
+```
+
+
+
+
 
