@@ -31,6 +31,6 @@
 * [Reducer Composition](reducer-composition-combine-reducers.md)
 * [Connecting React to Redux](connecting-react-to-redux.md)
 * [Connect\(\)](connect.md)
-* [Action Creators](actioncreators.md)
+* [Action Creators and bindActionCreators](actioncreators.md)
 * [Selectors and Reselect](entry-point.md)
 
