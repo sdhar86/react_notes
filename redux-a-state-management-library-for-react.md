@@ -54,9 +54,86 @@ const { createStore } = Redux; // Redux CDN import syntax
 const store = createStore(counter);
 ```
 
+### persistedState\(\)
+
+Redux lets us pass persistedState as the second argument to the createStore functions, to setup the initial state values. 
+
+```js
+const persistedState = {
+  todos: [{
+    id: 0,
+    text: 'Welcome Back!',
+    completed: false
+  }]
+}
+
+const store = createStore(
+  todoApp,
+  persistedState
+)
+```
+
+**Note: **
+
+We can persist state in localStorage
+
+\#\#\#\#`localStorage.js`
+
+```js
+export const loadState = () => {
+  try {
+    const serializedState = localStorage.getItem('state');
+    if (serializedState === null) {
+      return undefined;
+    }
+    return JSON.parse(serializedState);
+  } catch (err) {
+    return undefined;
+  }
+};
+
+
+export const saveState = (state) => {
+  try {
+    const serializedState = JSON.stringify(state);
+    localStorage.setItem('state', serializedState);
+  } catch (err) {
+    // Ignore write errors.
+  }
+};
+```
+
+Then in index.js, 
+
+In order to save our state any time the store changes, we will use the`store's subscribe()`method to add a listener that will be invoked on any state change, passing in the current state of the store into the`saveState`function:
+
+```js
+import { loadState, saveState } from './localStorage'
+
+// note: we dont have to save the entire state, only the ones that matter. 
+store.subscribe(() => {
+  saveState(store.getState())
+})
+```
+
+save State could be an expensive operation, and we save it everytime store changes... we can throttle it to save only once every 1s
+
+```js
+// top of index.js
+import throttle from 'lodash/throttle'
+.
+.
+.
+store.subscribe(throttle(() => {
+  saveState({
+    todos: store.getState().todos
+  })
+}, 1000))
+```
+
 ### Redux Overall Structure: ![](/assets/redux.png)
 
-### Redux Example:  
+### Redux Example:
 
 ```JavaScript
 const createStore = redux.createStore;
