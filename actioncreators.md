@@ -35,5 +35,5 @@ function mapDispatchToProps(dispatch){
 }
 ```
 
-This makes a prop for all the action creators and automatically 
+This makes a prop for all the action creators and automatically returns actions passed in disptach functions. 
 
