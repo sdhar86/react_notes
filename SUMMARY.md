@@ -30,4 +30,5 @@
 * [Avoiding State Mutation](avoiding-state-mutation.md)
 * [Reducer Composition](reducer-composition-combine-reducers.md)
 * [Connecting React to Redux](connecting-react-to-redux.md)
+* [Connect\(\)](connect.md)
 
