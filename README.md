@@ -17,6 +17,8 @@ Know before hand:
 * Fetch
   * [https://scotch.io/tutorials/how-to-use-the-javascript-fetch-api-to-get-data](https://scotch.io/tutorials/how-to-use-the-javascript-fetch-api-to-get-data)
 * Closure
+* Currying
+  * [https://medium.com/@kbrainwave/currying-in-javascript-ce6da2d324fe](https://medium.com/@kbrainwave/currying-in-javascript-ce6da2d324fe)
 
 
 
