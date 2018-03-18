@@ -10,7 +10,7 @@ Different reducers specify how different parts of the state tree are updated in 
 
 Reducer composition can be applied many times. While there's a single top-level reducer managing the overall state of the app, it's encouraged to have reducers call each other as needed to manage the state tree.
 
-###  `combineReducers()`
+### `combineReducers()`
 
 Let's say We have two reducers - **visibilityFilter\(\) **and **todos\(\)**
 
@@ -52,9 +52,9 @@ const todoApp = combineReducers({
 });
 ```
 
-Note: we pass in the **root reduce**r \(the top most level reducer\) to the store, when we create the store. 
+**Note: **
 
-
+* we pass in the **root reduce**r \(the top most level reducer\) to the store, when we create the store.
 
 
 
