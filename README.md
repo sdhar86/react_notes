@@ -12,7 +12,24 @@ Know before hand:
 * Promises
 * Immutability
 * Higher Order Functions
-* Thunks
+
+
+
+* #### Thunks
+
+A [thunk](https://en.wikipedia.org/wiki/Thunk) is a function that wraps an expression to delay its evaluation.
+
+```js
+// calculation of 1 + 2 is immediate
+// x === 3
+let x = 1 + 2;
+
+// calculation of 1 + 2 is delayed
+// foo can be called later to perform the calculation
+// foo is a thunk!
+let foo = () => 1 + 2;
+```
+
 * generators
 * Fetch
   * [https://scotch.io/tutorials/how-to-use-the-javascript-fetch-api-to-get-data](https://scotch.io/tutorials/how-to-use-the-javascript-fetch-api-to-get-data)
