@@ -1,3 +1,11 @@
+# Installing Gitbook
+
+```
+npm i -g gitbook-cli
+gitbook install
+gitbook serve
+```
+
 # React Notes
 
 Know before hand:
@@ -12,8 +20,6 @@ Know before hand:
 * Promises
 * Immutability
 * Higher Order Functions
-
-
 
 * #### Thunks
 
