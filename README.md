@@ -21,7 +21,9 @@ Know before hand:
 * Immutability
 * Higher Order Functions
 
-* #### Thunks
+# Thunks
+
+---
 
 A [thunk](https://en.wikipedia.org/wiki/Thunk) is a function that wraps an expression to delay its evaluation.
 
@@ -40,8 +42,29 @@ let foo = () => 1 + 2;
 * Fetch
   * [https://scotch.io/tutorials/how-to-use-the-javascript-fetch-api-to-get-data](https://scotch.io/tutorials/how-to-use-the-javascript-fetch-api-to-get-data)
 * Closure
-* Currying
-  * [https://medium.com/@kbrainwave/currying-in-javascript-ce6da2d324fe](https://medium.com/@kbrainwave/currying-in-javascript-ce6da2d324fe)
+
+# Currying
+
+---
+
+Currying is a process to reduce functions of more than one argument to functions of one argument with the help of lambda calculus.
+
+```
+f(n, m) --> f'(n)(m)
+```
+
+  **Example**: 
+
+```js
+multiply = (n, m) => (n * m)
+multiply(3, 4) === 12 // true
+
+curryedMultiply = (n) => ( (m) => multiply(n, m) )
+triple = curryedMultiply(3)
+triple(4) === 12 // true
+```
+
+### 
 
 
 
