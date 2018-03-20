@@ -73,9 +73,9 @@ The constructor for a React component is called before it is mounted. When imple
 
 `componentWillMount()`is invoked just before mounting occurs. It is called before`render()`, therefore calling`setState()`synchronously in this method **will not trigger an extra rendering**. Generally, we recommend using the`constructor()`instead.
 
-**Avoid introducing any side-effects or subscriptions in this method. For those use cases, use`componentDidMount()`instead.**
+**Avoid introducing any side-effects or subscriptions in this method. For those use cases, use**`componentDidMount()`**instead.**
 
-This is the only lifecycle hook called on server rendering. \*\* 
+This is the only lifecycle hook called on server rendering. \*\*
 
 ### `componentDidMount()` {#componentdidmount}
 
@@ -91,24 +91,30 @@ Calling`setState()`in this method will trigger an extra rendering, but it will h
 
 Note that React will call this method even if the props have not changed, so make sure to compare the current and next values if you only want to handle changes. This may occur when the parent component causes your component to re-render.
 
-**React doesn’t call`componentWillReceiveProps()`with initial props during **[**mounting**](https://reactjs.org/docs/react-component.html#mounting)**. It only calls this method if some of component’s props may update.** Calling`this.setState()`generally doesn’t trigger`componentWillReceiveProps()`.  
-
+**React doesn’t call**`componentWillReceiveProps()`**with initial props during **[**mounting**](https://reactjs.org/docs/react-component.html#mounting)**. It only calls this method if some of component’s props may update.** Calling`this.setState()`generally doesn’t trigger`componentWillReceiveProps()`.
 
 ### `shouldComponentUpdate()`
 
 Use`shouldComponentUpdate()`to let React know if a component’s output is not affected by the current change in state or props. The default behavior is to re-render on every state change, and in the vast majority of cases you should rely on the default behavior.
 
-`shouldComponentUpdate()`is invoked before rendering when new props or state are being received.** Defaults to`true`**. This method is not called for the initial render or when`forceUpdate()`is used.
+`shouldComponentUpdate()`is invoked before rendering when new props or state are being received.** Defaults to**`true`. This method is not called for the initial render or when`forceUpdate()`is used.
 
-**Returning`false`does not prevent child components from re-rendering when **_**their **_**state changes.**
+**Returning**`false`**does not prevent child components from re-rendering when **_**their **_**state changes.**
 
 Currently, if`shouldComponentUpdate()`returns`false`, then[`componentWillUpdate()`](https://reactjs.org/docs/react-component.html#componentwillupdate),[`render()`](https://reactjs.org/docs/react-component.html#render), and[`componentDidUpdate()`](https://reactjs.org/docs/react-component.html#componentdidupdate)will not be invoked. Note that in the future React may treat`shouldComponentUpdate()`as a hint rather than a strict directive, and returning`false`may still result in a re-rendering of the component.
 
 If you determine a specific component is slow after profiling, you may change it to inherit from[`React.PureComponent`](https://reactjs.org/docs/react-api.html#reactpurecomponent)which implements`shouldComponentUpdate()`with a shallow prop and state comparison. If you are confident you want to write it by hand, you may compare`this.props`with`nextProps`and`this.state`with`nextState`and return`false`to tell React the update can be skipped.
 
-**We do not recommend doing deep equality checks or using`JSON.stringify()`in`shouldComponentUpdate()`. It is very inefficient and will harm performance.**  
-  
+**We do not recommend doing deep equality checks or using**`JSON.stringify()`**in**`shouldComponentUpdate()`**. It is very inefficient and will harm performance.**
 
+### `componentWillUpdate()` {#componentwillupdate}
+
+  
+`componentWillUpdate()`is invoked just before rendering when new props or state are being received. Use this as an opportunity to perform preparation before an update occurs. This method is not called for the initial render.
+
+**Note that you cannot call`this.setState()`here; nor should you do anything else \(e.g. dispatch a Redux action\) that would trigger an update to a React component before`componentWillUpdate()`returns.**
+
+If you need to update`state`in response to`props`changes, use`componentWillReceiveProps()`instead.
 
 
 
