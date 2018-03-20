@@ -34,4 +34,5 @@
 * [Selectors and Reselect](entry-point.md)
 * [Redux Middleware](redux-middleware.md)
 * [Redux Promise MiddleWare](redux-promise-middleware.md)
+* [Redux Thunk Middleware](redux-thunk-middleware.md)
 
