@@ -160,20 +160,22 @@ Instead of passing store around as props, there is an easier way: use React's co
 
 we define a provider HOC:
 
-    class Provider extends Component {
-      getChildContext() {
-        return {
-          store: this.props.store // This corresponds to the `store` passed in as a prop
-        };
-      }
-      render() {
-        return this.props.children;
-      }
-    }
+```js
+class Provider extends Component {
+  getChildContext() {
+    return {
+      store: this.props.store // This corresponds to the `store` passed in as a prop
+    };
+  }
+  render() {
+    return this.props.children;
+  }
+}
 
-    Provider.childContextTypes = {
-      store: React.PropTypes.object
-    }
+Provider.childContextTypes = {
+  store: React.PropTypes.object
+}
+```
 
 and then:
 
@@ -346,7 +348,7 @@ render(
 
 With the extracted Root Component, it is **easy for us to add React Router to our projects: **
 
-react-router 4.0.0 and up 
+react-router 4.0.0 and up
 
 ```js
 import React, { PropTypes } from 'react';
@@ -363,7 +365,7 @@ const Root = ({ store }) => (
 );
 ```
 
-Old React router &lt; v4.0.0: 
+Old React router &lt; v4.0.0:
 
 ```js
 import React, { PropTypes } from 'react';

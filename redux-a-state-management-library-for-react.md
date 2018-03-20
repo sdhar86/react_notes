@@ -56,7 +56,7 @@ const store = createStore(counter);
 
 ### persistedState\(\)
 
-Redux lets us pass persistedState as the second argument to the createStore functions, to setup the initial state values. 
+Redux lets us pass persistedState as the second argument to the createStore functions, to setup the initial state values.
 
 ```js
 const persistedState = {
@@ -103,7 +103,7 @@ export const saveState = (state) => {
 };
 ```
 
-Then in index.js, 
+Then in index.js,
 
 In order to save our state any time the store changes, we will use the`store's subscribe()`method to add a listener that will be invoked on any state change, passing in the current state of the store into the`saveState`function:
 
@@ -135,7 +135,7 @@ store.subscribe(throttle(() => {
 
 ### Redux Example:
 
-```JavaScript
+```js
 const createStore = redux.createStore;
 
 const initialState = {counter : 0}
