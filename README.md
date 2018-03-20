@@ -17,7 +17,9 @@ Know before hand:
 * Spread Operators Es6
 * Fat arrow ES6
 * Async and Await
+  * catching errors
 * Promises
+  * Then cases 
 * Immutability
 * Higher Order Functions
 
@@ -64,9 +66,7 @@ triple = curryedMultiply(3)
 triple(4) === 12 // true
 ```
 
-### Named and Default Exports 
+### Named and Default Exports
 
 [https://til.hashrocket.com/posts/xrtndhi1hi-default-and-named-exports-from-the-same-module](https://til.hashrocket.com/posts/xrtndhi1hi-default-and-named-exports-from-the-same-module)
-
-
 
