@@ -109,12 +109,33 @@ If you determine a specific component is slow after profiling, you may change it
 
 ### `componentWillUpdate()` {#componentwillupdate}
 
-  
 `componentWillUpdate()`is invoked just before rendering when new props or state are being received. Use this as an opportunity to perform preparation before an update occurs. This method is not called for the initial render.
 
-**Note that you cannot call`this.setState()`here; nor should you do anything else \(e.g. dispatch a Redux action\) that would trigger an update to a React component before`componentWillUpdate()`returns.**
+**Note that you cannot call**`this.setState()`**here; nor should you do anything else \(e.g. dispatch a Redux action\) that would trigger an update to a React component before**`componentWillUpdate()`**returns.**
 
 If you need to update`state`in response to`props`changes, use`componentWillReceiveProps()`instead.
+
+### `componentDidUpdate()` {#componentdidupdate}
+
+  
+`componentDidUpdate()`is invoked immediately after updating occurs. This method is not called for the initial render.
+
+**Use this as an opportunity to operate on the DOM when the component has been updated. This is also a good place to do network requests as long as you compare the current props to previous props \(e.g. a network request may not be necessary if the props have not changed\).**
+
+### `componentWillUnmount()` {#componentwillunmount}
+
+is invoked immediately before a component is unmounted and destroyed. Perform any necessary cleanup in this method, such as invalidating timers, canceling network requests, or cleaning up any subscriptions that were created in `componentDidMount().`
+
+### `componentDidCatch()` {#componentdidcatch}
+
+Error boundaries are React components that catch JavaScript errors anywhere in their child component tree, log those errors, and display a fallback UI instead of the component tree that crashed. Error boundaries catch errors during rendering, in lifecycle methods, and in constructors of the whole tree below them.
+
+A class component becomes an error boundary if it defines this lifecycle method. **Calling`setState()`in it lets you capture an unhandled JavaScript error in the below tree and display a fallback UI. Only use error boundaries for recovering from unexpected exceptions; don’t try to use them for control flow.**
+
+  
+
+
+
 
 
 
