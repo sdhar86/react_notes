@@ -53,7 +53,7 @@ Currying is a process to reduce functions of more than one argument to functions
 f(n, m) --> f'(n)(m)
 ```
 
-  **Example**: 
+**Example**:
 
 ```js
 multiply = (n, m) => (n * m)
@@ -64,7 +64,9 @@ triple = curryedMultiply(3)
 triple(4) === 12 // true
 ```
 
-### 
+### Named and Default Exports 
+
+[https://til.hashrocket.com/posts/xrtndhi1hi-default-and-named-exports-from-the-same-module](https://til.hashrocket.com/posts/xrtndhi1hi-default-and-named-exports-from-the-same-module)
 
 
 
