@@ -2,6 +2,12 @@
 
 ---
 
+Concretely,**a higher-order component is a function that takes a component and returns a new component.**
+
+[https://reactjs.org/docs/higher-order-components.html](https://reactjs.org/docs/higher-order-components.html)
+
+Example: 
+
 Lets look at two ways of using HOCs in React
 
 Objective: We want to included specific css classes in a component
