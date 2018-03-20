@@ -45,5 +45,33 @@ To do : add example here
 
 ### Component lifecycle - Update \(triggered by internal this.setState call\)
 
-![](/assets/lifecycle_internal.png)
+### ![](/assets/lifecycle_internal.png)
+
+### `render()` {#render}
+
+**The`render()`method is required.**
+
+When called, it should examine`this.props`and`this.state`and return one of the following types:
+
+* **React elements.**
+* **String and numbers.**
+* **Portals**
+* `null - ` Renders nothing.
+* **Booleans - **Render nothing.
+
+The`render()`function **should be pure**, meaning that it does not modify component state, it returns the same result each time it’s invoked, and it does not directly interact with the browser. If you need to interact with the browser, perform your work in`componentDidMount()`or the other lifecycle methods instead. Keeping`render()`pure makes components easier to think about.  
+
+
+### `constructor()`
+
+The constructor for a React component is called before it is mounted. When implementing the constructor for a`React.Component`subclass, you **should call`super(props)`**before any other statement. Otherwise,`this.props`will be undefined in the constructor, which can lead to bugs.
+
+**Avoid introducing any side-effects or subscriptions in the constructor. For those use cases, use`componentDidMount()`instead.**
+
+**The constructor is the right place to initialize state.** To do so, just assign an object to`this.state`; don’t try to call`setState()`from the constructor. The constructor is also often used to bind event handlers to the class instance.
+
+  
+
+
+
 
