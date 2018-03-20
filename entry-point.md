@@ -32,7 +32,7 @@ export default connect(
 
 Wit using Selectors;
 
-```
+```js
 export default connect(
   (state) => ({
     dataType: getDataType(state),
