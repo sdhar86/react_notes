@@ -53,13 +53,13 @@ this.props.history.replace{{pathname: '/' + id}}
 
 ### Navigation Guards
 
-We can use Redirect to add guards that will only let people in for who are authenticated. 
+We can use Redirect to add guards that will only let people in for who are authenticated.
 
 ```
   {this.state.auth ? <Route path="/new_post component={NewPost}"> : null}
 ```
 
-or in a lifecycle hook: 
+or in a lifecycle hook:
 
 ```
 componentDidMount () {
@@ -68,5 +68,7 @@ componentDidMount () {
 }
 ```
 
+Thats not the only way to handle authenticated users howerver, 
 
+we can also restrict the data - we can let the UI to be open to all, and only hydrate the app with data when the user is logged in. 
 
