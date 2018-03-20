@@ -2,6 +2,8 @@
 
 ---
 
+### [https://github.com/axios/axios](https://github.com/axios/axios)
+
 ### Adding Interceptors
 
 We can add **interceptors** to add functionality to apps globally.
@@ -39,12 +41,11 @@ axios.interceptors.response.use(response => {
     console.log(request);
     return response: 
 })
-
 ```
 
+**To capture api errors, we must use interceptor on response. **
 
-
-### **Removing Interceptors**
+**Removing Interceptors**
 
 ```
 var myInterceptor = axios.interceptors.request.use(function () {/*...*/});
