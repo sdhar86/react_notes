@@ -2,19 +2,15 @@
 
 ---
 
-Concretely,**a higher-order component is a function that takes a component and returns a new component.**
-
-[https://reactjs.org/docs/higher-order-components.html](https://reactjs.org/docs/higher-order-components.html)
-
-Example: 
-
-Lets look at two ways of using HOCs in React
+Example:
 
 Objective: We want to included specific css classes in a component
 
-### Approach 1:
+### Composition:
 
-Let's define a WithClass HOC
+[https://reactjs.org/docs/composition-vs-inheritance.html](https://reactjs.org/docs/composition-vs-inheritance.html)
+
+Let's define a WithClass Containment
 
 ```
 import React from 'react'; 
@@ -43,9 +39,11 @@ return (
 );
 ```
 
-### Approach 2:
+### Higher Order Component:
 
-We can write the with class HOC differently:
+Concretely,**a higher-order component is a function that takes a component and returns a new component.**
+
+[https://reactjs.org/docs/higher-order-components.html](https://reactjs.org/docs/higher-order-components.html)
 
 ```
 import React from 'react';
