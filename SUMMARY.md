@@ -35,4 +35,5 @@
 * [Redux Middleware](redux-middleware.md)
 * [Redux Promise MiddleWare](redux-promise-middleware.md)
 * [Redux Thunk Middleware](redux-thunk-middleware.md)
+* [Redux Saga Middleware](redux-saga-middleware.md)
 

@@ -14,7 +14,7 @@ return (
 );
 ```
 
-All we right is javaScript - so we can use a ternary expression as show above.
+All we write is javaScript - so we can use a ternary expression as show above.
 
 For readability, we can also extract the content out
 
