@@ -116,11 +116,11 @@ setState = (Obj) => {
 }
 ```
 
- **Note: **
+**Note: **
 
 * the spread operator does a replace of a key, and not a merge
 * **React setState does a shallow merge \( uses spread operators\).**
-*  We can use the **lodash merge** does nested recursive merge \(deep merge\)
+* We can use the **lodash merge** does nested recursive merge \(deep merge\)
 * \`undefined\` replaces value in ES6 spread operator - lodash merge does not 
   * if we have use spread operator to merge {b: undefined} the b param will be set to undefined, but lodash merge does not do this. 
 * in a redux app we can use **replace** and **merge **actions- **replace** will use the spread operators, **merge** will use lodash merge

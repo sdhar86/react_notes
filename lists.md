@@ -60,7 +60,6 @@ deletePersonHandler = () => {
 
 render() {
 
-index = 5
   {this.persons.map((person, index) => {
       return <Person 
         name={person.name} 

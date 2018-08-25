@@ -70,7 +70,7 @@ const App = ({ match }) => (
 
 **with WithRouter HOC**
 
-app.js: 
+app.js:
 
 ```js
 const App = () => (
